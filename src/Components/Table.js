@@ -2,7 +2,7 @@ import React from "react";
 
 export default () => {
   return (
-    <table class="table is-fullwidth is-bordered is-hoverable">
+    <table className="table is-fullwidth is-bordered is-hoverable">
       <thead>
         <tr>
           <td>DATE</td>

@@ -4,10 +4,10 @@ export default ({ title, subtitle }) => {
   return (
     
       
-      <section class="section" style={{backgroundColor:'white'}}>
-        <div class="container">
-          <h1 class="title">{title}</h1>
-          <h2 class="subtitle">{subtitle} </h2>
+      <section className="section" style={{backgroundColor:'white'}}>
+        <div className="container">
+          <h1 className="title">{title}</h1>
+          <h2 className="subtitle">{subtitle} </h2>
           </div>
       </section>
    

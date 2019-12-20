@@ -30,11 +30,9 @@ export default ({}) => {
           <Centerlevel title="456K" heading="Followers"></Centerlevel>
           <Centerlevel title="789" heading="Likes"></Centerlevel>
         </nav>
-        <h3 class="subtitle is-3">
-          Twitter Stats Summary / User Statistics For {username}:
-        </h3>
+        <Title title={"Twitter Stats Summary / User Statistics For " +username +":"}></Title>
         <Table></Table>
-        <h3 class="subtitle is-3">Twitter Progress Graphs For {username}:</h3>
+        <Title title={"Twitter Progress Graphs For " +username +":"}></Title>
       </div>
     </div>
   ) : (
