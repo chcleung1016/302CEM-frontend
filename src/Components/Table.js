@@ -1,0 +1,60 @@
+import React from "react";
+
+export default () => {
+  return (
+    <table class="table is-fullwidth is-bordered is-hoverable">
+      <thead>
+        <tr>
+          <td>DATE</td>
+          <td>FOLLOWERS</td>
+          <td>FOLLOWING</td>
+          <td>TWEETS</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2019-12-07</td>
+          <td>67,308,356</td>
+          <td>47</td>
+          <td>46,700</td>
+        </tr>
+        <tr>
+          <td>2019-12-07</td>
+          <td>67,308,356</td>
+          <td>47</td>
+          <td>46,700</td>
+        </tr>
+        <tr>
+          <td>2019-12-07</td>
+          <td>67,308,356</td>
+          <td>47</td>
+          <td>46,700</td>
+        </tr>
+        <tr>
+          <td>2019-12-07</td>
+          <td>67,308,356</td>
+          <td>47</td>
+          <td>46,700</td>
+        </tr>
+        <tr>
+          <td>2019-12-07</td>
+          <td>67,308,356</td>
+          <td>47</td>
+          <td>46,700</td>
+        </tr>
+        <tr>
+          <td>2019-12-07</td>
+          <td>67,308,356</td>
+          <td>47</td>
+          <td>46,700</td>
+        </tr>
+        <tr>
+          <td>2019-12-07</td>
+          <td>67,308,356</td>
+          <td>47</td>
+          <td>46,700</td>
+        </tr>
+      </tbody>
+    </table>
+  );
+};

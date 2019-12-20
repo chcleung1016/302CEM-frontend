@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 export default ({}) => {
   const [username, setUsername] = useState("");
   return (
-    <div class="container" style={{ paddingTop: 24 }}>
-      <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item" href="https://bulma.io">
             <img
@@ -27,15 +27,13 @@ export default ({}) => {
             <span aria-hidden="true"></span>
           </a>
         </div>
-        
+
         <div id="navbarBasicExample" class="navbar-menu">
-            
           <div class="navbar-end">
             <Link to={"/"}>
-                
               <a class="navbar-item">Home</a>
             </Link>
-         
+
             <a class="navbar-item">
               <div class="level-item">
                 <div class="field has-addons">
@@ -58,7 +56,8 @@ export default ({}) => {
             </a>
           </div>
         </div>
+        </div>
       </nav>
-    </div>
+    
   );
 };
