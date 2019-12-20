@@ -6,36 +6,52 @@ import Herotitle from "../Components/Herotitle";
 import Centerlevel from "../Components/Centerlevel";
 import Table from "../Components/Table";
 import Title from "../Components/Title";
-export default ({}) => {
+import Breadcrumb from "../Components/Breadcrumb";
+
+export default () => {
   let { username } = useParams();
   const user = getUser(username);
   return user ? (
+    
     <div>
       <Herotitle title="302CEM Project" subtitle="User Page"></Herotitle>
-      <div class="container" style={{ backgroundColor: "white", padding: 20 }}>
-        <div class="level-item has-text-centered">
+      <div
+        className="container"
+        style={{ backgroundColor: "white", padding: 20 }}
+      >
+        <Breadcrumb page="Home" currentpage="User"></Breadcrumb>
+        <div className="level-item has-text-centered">
           <div>
-            <figure class="image is-128x128">
+            <figure className="image is-128x128">
               <img
-                class="is-rounded"
+                className="is-rounded"
                 src="https://bulma.io/images/placeholders/128x128.png"
               ></img>
             </figure>
           </div>
         </div>
         <Centerlevel title={username}></Centerlevel>
-        <nav class="level is-mobile">
+        <br/>
+        <nav className="level is-mobile">
           <Centerlevel title="3456" heading="Tweets"></Centerlevel>
           <Centerlevel title="123" heading="Following"></Centerlevel>
           <Centerlevel title="456K" heading="Followers"></Centerlevel>
           <Centerlevel title="789" heading="Likes"></Centerlevel>
         </nav>
-        <Title title={"Twitter Stats Summary / User Statistics For " +username +":"}></Title>
+        <br/>
+        <Title
+          title={
+            "Twitter Stats Summary / User Statistics For " + username + ":"
+          }
+        ></Title>
         <Table></Table>
-        <Title title={"Twitter Progress Graphs For " +username +":"}></Title>
+        <Title title={"Twitter Progress Graphs For " + username + ":"}></Title>
       </div>
     </div>
   ) : (
-    <div>no user found.</div>
+    <div>
+      <Herotitle title="302CEM Project" subtitle="User Page"></Herotitle>
+      <Section subtitle="no user found."></Section>
+    </div>
   );
 };

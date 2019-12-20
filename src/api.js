@@ -1,5 +1,5 @@
-import users from "./JSON/users.json"
+import users from "./JSON/users.json";
 
-export function getUser(username){
-    return users[username]
+export function getUser(username) {
+  return users[username];
 }
