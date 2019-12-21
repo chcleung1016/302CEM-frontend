@@ -7,7 +7,73 @@ import Centerlevel from "../Components/Centerlevel";
 import Table from "../Components/Table";
 import Title from "../Components/Title";
 import Breadcrumb from "../Components/Breadcrumb";
-
+import Graph from "../Components/Graph";
+import {toShortNumber} from "../util";
+const data = [
+  {
+    date: "2019-12-07",
+    followers_increase: 18983,
+    follower: 67332471,
+    following_increase: 0,
+    following: 47,
+    tweets_increase: 48,
+    tweets: 46700
+  },
+  {
+    date: "2019-12-08",
+    followers_increase: 24115,
+    follower: 67352688,
+    following_increase: 0,
+    following: 47,
+    tweets_increase: 23,
+    tweets: 46723
+  },
+  {
+    date: "2019-12-09",
+    followers_increase: 39979,
+    follower: 67392667,
+    following_increase: 1,
+    following: 48,
+    tweets_increase: 105,
+    tweets: 46828
+  },
+  {
+    date: "2019-12-10",
+    followers_increase: 30106,
+    follower: 67422773,
+    following_increase: 0,
+    following: 48,
+    tweets_increase: 18,
+    tweets: 46846
+  },
+  {
+    date: "2019-12-11",
+    followers_increase: 24248,
+    follower: 67447021,
+    following_increase: 0,
+    following: 48,
+    tweets_increase: 77,
+    tweets: 46961
+  },
+  {
+    date: "2019-12-12",
+    followers_increase: 24250,
+    follower: 67447023,
+    following_increase: 0,
+    following: 48,
+    tweets_increase: 20,
+    tweets: 46981
+  },
+  {
+    date: "2019-12-13",
+    followers_increase: 24250,
+    follower: 67447021,
+    following_increase: 0,
+    following: 48,
+    tweets_increase: 20,
+    tweets: 47001
+  }
+];
 export default () => {
   let { username } = useParams();
   const user = getUser(username);
@@ -31,12 +97,12 @@ export default () => {
             </div>
           </div>
           <Centerlevel title={username}></Centerlevel>
+          <Centerlevel heading="Created at 2017-12-07"></Centerlevel>
           <br />
           <nav className="level is-mobile">
-            <Centerlevel title="3456" heading="Tweets"></Centerlevel>
-            <Centerlevel title="123" heading="Following"></Centerlevel>
-            <Centerlevel title="456K" heading="Followers"></Centerlevel>
-            <Centerlevel title="789" heading="Likes"></Centerlevel>
+            <Centerlevel title={toShortNumber( data[data.length-1].tweets)} heading="Tweets"></Centerlevel>
+            <Centerlevel title={data[data.length-1].following}  heading="Following"></Centerlevel>
+            <Centerlevel title={toShortNumber(data[data.length-1].follower)}  heading="Followers"></Centerlevel>
           </nav>
           <br />
           <Title
@@ -44,10 +110,18 @@ export default () => {
               "Twitter Stats Summary / User Statistics For " + username + ":"
             }
           ></Title>
-          <Table></Table>
+          <Table data={data}></Table>
           <Title
             title={"Twitter Progress Graphs For " + username + ":"}
           ></Title>
+          <Centerlevel title={"Followers Increase For "+ username}></Centerlevel>
+          <br/>
+          <Graph data={data} label="followers_increase"></Graph>
+          <br/>
+          <Centerlevel title={"Tweets Increase For " + username}></Centerlevel>
+          <br/>
+          <Graph data={data} label="tweets_increase"></Graph>
+
         </div>
       </div>
     </div>
