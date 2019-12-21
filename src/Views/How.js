@@ -4,11 +4,16 @@ import Section from "../Components/Section";
 import Breadcrumb from "../Components/Breadcrumb";
 
 export default () => {
-  return ( 
+  return (
     <div>
       <Herotitle title="302CEM Project" subtitle="How it works"></Herotitle>
-      <div style={{ backgroundColor: "white" }}>
-      <Breadcrumb page="Home" currentpage="How it works"></Breadcrumb>
+      <div
+        className="container"
+        style={{ backgroundColor: "white", marginTop: 20 }}
+      >
+        <div className="box">
+          <Breadcrumb page="Home" currentpage="How it works"></Breadcrumb>
+        </div>
       </div>
     </div>
   );

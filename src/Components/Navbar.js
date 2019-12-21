@@ -1,37 +1,16 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-document.addEventListener('DOMContentLoaded', () => {
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
-  // Get all "navbar-burger" elements
-  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-  // Check if there are any navbar burgers
-  if ($navbarBurgers.length > 0) {
-
-    // Add a click event on each of them
-    $navbarBurgers.forEach( el => {
-      el.addEventListener('click', () => {
-
-        // Get the target from the "data-target" attribute
-        const target = el.dataset.target;
-        const $target = document.getElementById(target);
-
-        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-        el.classList.toggle('is-active');
-        $target.classList.toggle('is-active');
-
-      });
-    });
-  }
-
-});
 export default () => {
   const [username, setUsername] = useState("");
+  const path = useLocation().pathname;
+  const [menuActive, setMenuActive] = useState(false);
+
   return (
     <nav className="navbar is-transparent">
       <div className="container">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="https://bulma.io">
+        <div className="navbar-brand">
+          <a className="navbar-item" href="https://bulma.io">
             <img
               src="https://bulma.io/images/bulma-logo.png"
               alt="Bulma: a modern CSS framework based on Flexbox"
@@ -40,7 +19,8 @@ export default () => {
             ></img>
           </a>
           <div
-            class="navbar-burger burger"
+            className={`navbar-burger burger${menuActive ? " is-active" : ""}`}
+            onClick={() => setMenuActive(!menuActive)}
             data-target="navbarExampleTransparentExample"
           >
             <span></span>
@@ -48,34 +28,52 @@ export default () => {
             <span></span>
           </div>
         </div>
-        <div id="navbarExampleTransparentExample" class="navbar-menu">
+        <div
+          id="navbarExampleTransparentExample"
+          className={`navbar-menu${menuActive ? " is-active" : ""}`}
+        >
           <div className="navbar-start">
             <div className="tabs">
               <ul>
-                <Link to={"/"}>
-                  <li className="is-active">
+                <Link onClick={() => setMenuActive(false)} to={"/"}>
+                  <li className={path === "/" ? "is-active" : ""}>
                     <a>
-                      <span class="icon is-small">
-                        <i class="fas fa-home" aria-hidden="true"></i>
+                      <span className="icon is-small">
+                        <i className="fas fa-home" aria-hidden="true"></i>
                       </span>
                       <span>Home</span>
                     </a>
                   </li>
                 </Link>
-                <Link to={"/howitworks"}>
-                <li>
-                  <a>How it works</a>
-                </li>
+                <Link onClick={() => setMenuActive(false)} to={"/howitworks"}>
+                  <li className={path === "/howitworks" ? "is-active" : ""}>
+                    <a>
+                      <span className="icon is-small">
+                        <i class="fas fa-wrench" aria-hidden="true"></i>
+                      </span>
+                      <span>How it works</span>
+                    </a>
+                  </li>
                 </Link>
-                <Link to={"/contactus"}>
-                <li>
-                  <a>Contact us</a>
-                </li>
+                <Link onClick={() => setMenuActive(false)} to={"/contactus"}>
+                  <li className={path === "/contactus" ? "is-active" : ""}>
+                    <a>
+                      <span className="icon is-small">
+                        <i class="fas fa-phone" aria-hidden="true"></i>
+                      </span>
+                      <span>Contact us</span>
+                    </a>
+                  </li>
                 </Link>
-                <Link to={"/help"}>
-                <li>
-                  <a>Help</a>
-                </li>
+                <Link onClick={() => setMenuActive(false)} to={"/help"}>
+                  <li className={path === "/help" ? "is-active" : ""}>
+                  <a>
+                      <span className="icon is-small">
+                        <i class="fas fa-question" aria-hidden="true"></i>
+                      </span>
+                      <span>Help</span>
+                    </a>
+                  </li>
                 </Link>
               </ul>
             </div>
@@ -94,7 +92,10 @@ export default () => {
                     ></input>
                   </p>
                   <p className="control">
-                    <Link to={"/user/" + username}>
+                    <Link
+                      onClick={() => setMenuActive(false)}
+                      to={"/user/" + username}
+                    >
                       <button className="button">Search</button>
                     </Link>
                   </p>
