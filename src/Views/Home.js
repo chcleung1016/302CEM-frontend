@@ -1,7 +1,6 @@
 import React from "react";
 import Section from "../Components/Section";
 import Herotitle from "../Components/Herotitle";
-import Breadcrumb from "../Components/Breadcrumb";
 export default () => {
   return (
     <div>

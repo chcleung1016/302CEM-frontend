@@ -1,6 +1,5 @@
 import React from "react";
 import Herotitle from "../Components/Herotitle";
-import Section from "../Components/Section";
 import Breadcrumb from "../Components/Breadcrumb";
 
 export default () => {

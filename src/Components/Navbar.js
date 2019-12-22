@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 export default () => {
@@ -35,73 +35,80 @@ export default () => {
           <div className="navbar-start">
             <div className="tabs">
               <ul>
-                <Link onClick={() => setMenuActive(false)} to={"/"}>
-                  <li className={path === "/" ? "is-active" : ""}>
-                    <a>
-                      <span className="icon is-small">
-                        <i className="fas fa-home" aria-hidden="true"></i>
-                      </span>
-                      <span>Home</span>
-                    </a>
-                  </li>
-                </Link>
-                <Link onClick={() => setMenuActive(false)} to={"/howitworks"}>
-                  <li className={path === "/howitworks" ? "is-active" : ""}>
-                    <a>
-                      <span className="icon is-small">
-                        <i class="fas fa-wrench" aria-hidden="true"></i>
-                      </span>
-                      <span>How it works</span>
-                    </a>
-                  </li>
-                </Link>
-                <Link onClick={() => setMenuActive(false)} to={"/contactus"}>
-                  <li className={path === "/contactus" ? "is-active" : ""}>
-                    <a>
-                      <span className="icon is-small">
-                        <i class="fas fa-phone" aria-hidden="true"></i>
-                      </span>
-                      <span>Contact us</span>
-                    </a>
-                  </li>
-                </Link>
-                <Link onClick={() => setMenuActive(false)} to={"/help"}>
-                  <li className={path === "/help" ? "is-active" : ""}>
-                  <a>
-                      <span className="icon is-small">
-                        <i class="fas fa-question" aria-hidden="true"></i>
-                      </span>
-                      <span>Help</span>
-                    </a>
-                  </li>
-                </Link>
+                <li
+                  className={path === "/" ? "is-active" : ""}
+                  style={{ padding: 10 }}
+                >
+                  <Link
+                    onClick={() => setMenuActive(false)}
+                    to={"/"}
+                    className="navbar-item"
+                  >
+                    <span className="icon is-small">
+                      <i className="fas fa-home" aria-hidden="true"></i>
+                    </span>
+                    <span>Home</span>
+                  </Link>
+                </li>
+                <li
+                  className={path === "/howitworks" ? "is-active" : ""}
+                  style={{ padding: 10 }}
+                >
+                  <Link
+                    onClick={() => setMenuActive(false)}
+                    to={"/howitworks"}
+                    className="navbar-item"
+                  >
+                    <span className="icon is-small">
+                      <i className="fas fa-wrench" aria-hidden="true"></i>
+                    </span>
+                    <span>How it works</span>
+                  </Link>
+                </li>
+                <li
+                  className={path === "/contactus" ? "is-active" : ""}
+                  style={{ padding: 10 }}
+                >
+                  <Link onClick={() => setMenuActive(false)} to={"/contactus"}>
+                    <span className="icon is-small">
+                      <i className="fas fa-phone" aria-hidden="true"></i>
+                    </span>
+                    <span>Contact us</span>
+                  </Link>
+                </li>
+                <li className={path === "/help" ? "is-active" : ""}>
+                  <Link onClick={() => setMenuActive(false)} to={"/help"}>
+                    <span className="icon is-small">
+                      <i className="fas fa-question" aria-hidden="true"></i>
+                    </span>
+                    <span>Help</span>
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
           <div className="navbar-end">
-            <a className="navbar-item">
-              <div className="level-item">
-                <div className="field has-addons">
-                  <p className="control">
-                    <input
-                      className="input"
-                      type="text"
-                      placeholder="enter 'user1' for test"
-                      value={username}
-                      onChange={event => setUsername(event.target.value)}
-                    ></input>
-                  </p>
-                  <p className="control">
-                    <Link
-                      onClick={() => setMenuActive(false)}
-                      to={"/user/" + username}
-                    >
-                      <button className="button">Search</button>
-                    </Link>
-                  </p>
-                </div>
+            <div className="level-item">
+              <div className="field has-addons">
+                <p className="control">
+                  <input
+                    className="input"
+                    type="text"
+                    placeholder="enter 'user1' for test"
+                    value={username}
+                    onChange={event => setUsername(event.target.value)}
+                  ></input>
+                </p>
+                <p className="control">
+                  <Link
+                    onClick={() => setMenuActive(false)}
+                    to={"/user/" + username}
+                  >
+                    <button className="button">Search</button>
+                  </Link>
+                </p>
               </div>
-            </a>
+            </div>
           </div>
         </div>
       </div>

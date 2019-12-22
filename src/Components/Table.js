@@ -1,9 +1,9 @@
 import React from "react";
 import { formatNumber, getDay } from "../util";
 
-export default ({data}) => {
+export default ({ data }) => {
   return (
-    <div class="table-container">
+    <div className="table-container">
       <table className="table is-fullwidth is-hoverable">
         <thead>
           <tr>

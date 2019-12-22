@@ -1,5 +1,5 @@
 import React from "react";
-import {toShortNumber,formatNumber} from "../util";
+import { toShortNumber, formatNumber } from "../util";
 import {
   LineChart,
   XAxis,
@@ -9,18 +9,16 @@ import {
   YAxis,
   ResponsiveContainer
 } from "recharts";
-export default ({data, label}) => {
+export default ({ data, label }) => {
   return (
     <div style={{ width: "100%", height: 350 }}>
       <ResponsiveContainer>
-        <LineChart
-          data={data}
-        >
+        <LineChart data={data}>
           <CartesianGrid vertical={false} />
           <XAxis dataKey="date" />
           <YAxis tickFormatter={toShortNumber} domain={["auto", "auto"]} />
           <Tooltip
-          formatter={formatNumber}
+            formatter={formatNumber}
             wrapperStyle={{
               borderColor: "white",
               boxShadow: "2px 2px 3px 0px rgb(204, 204, 204)"

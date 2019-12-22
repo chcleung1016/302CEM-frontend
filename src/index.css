@@ -18,14 +18,14 @@ code {
   opacity: 0;
   animation-fill-mode: forwards;
 }
-.delay-s{
-  animation-delay: .3s;
+.delay-s {
+  animation-delay: 0.1s;
 }
-.delay-m{
-  animation-delay: .5s;
+.delay-m {
+  animation-delay: 0.2s;
 }
-.delay-l{
-  animation-delay: .7s;
+.delay-l {
+  animation-delay: 0.3s;
 }
 @keyframes fadein {
   from {

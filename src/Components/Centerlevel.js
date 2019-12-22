@@ -1,7 +1,7 @@
 import React from "react";
 import CountUp from "react-countup";
-import {toShortNumber} from "../util";
-export default ({ title, heading, numberAnimation}) => {
+import { toShortNumber } from "../util";
+export default ({ title, heading, numberAnimation }) => {
   return (
     <div className="level-item has-text-centered">
       <div>

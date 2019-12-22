@@ -1,12 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Views/Home";
 import User from "./Views/User";
 import Help from "./Views/Help";
 import How from "./Views/How";
 import Contact from "./Views/Contact";
 import Navbar from "./Components/Navbar";
-
+import Footer from "./Components/Footer";
 function App() {
   return (
     <Router>
@@ -28,6 +28,7 @@ function App() {
           <Home />
         </Route>
       </Switch>
+      <Footer />
     </Router>
   );
 }

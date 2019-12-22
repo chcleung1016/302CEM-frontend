@@ -8,7 +8,7 @@ import Table from "../Components/Table";
 import Title from "../Components/Title";
 import Breadcrumb from "../Components/Breadcrumb";
 import Graph from "../Components/Graph";
-import { toShortNumber } from "../util";
+
 const data = [
   {
     date: "2019-12-07",
@@ -84,22 +84,22 @@ export default () => {
       <div className="container" style={{ marginTop: 20 }}>
         <div className="box fade">
           <Breadcrumb page="Home" currentpage="User"></Breadcrumb>
-         
-            <div className="level-item has-text-centered">
-              <div>
-                <figure className="image is-128x128">
-                  <img
-                    className="is-rounded"
-                    src="https://bulma.io/images/placeholders/128x128.png"
-                  ></img>
-                </figure>
-              </div>
+
+          <div className="level-item has-text-centered">
+            <div>
+              <figure className="image is-128x128">
+                <img
+                  className="is-rounded"
+                  alt=""
+                  src="https://bulma.io/images/placeholders/128x128.png"
+                ></img>
+              </figure>
             </div>
-            <Centerlevel title={username}></Centerlevel>
-            <Centerlevel heading="Created at 2017-12-07"></Centerlevel>
-          
+          </div>
+          <Centerlevel title={username}></Centerlevel>
+          <Centerlevel heading="Created at 2017-12-07"></Centerlevel>
           <br />
-          <nav className="level is-mobile fade delay-s">
+          <nav className="level is-mobile" style={{ paddingBottom: 10 }}>
             <Centerlevel
               numberAnimation
               title={lastData.tweets}
@@ -116,24 +116,27 @@ export default () => {
               heading="Followers"
             ></Centerlevel>
           </nav>
-          <br/>
         </div>
 
-        <div className="box fade delay-m">
-          <Title title={"Summary"}></Title>
+        <div className="box fade delay-m" style={{ padding: 25 }}>
+          <p className="title">Summary</p>
+          <br />
           <Table data={data}></Table>
         </div>
-        <div className="box fade delay-l">
-          <Title title={"Graphs"}></Title>
-          <Centerlevel title={"Followers"}></Centerlevel>
+        <div className="box fade delay-l" style={{ padding: 25 }}>
+          <p className="title">Graph</p>
+          <br />
+          <Title title="Followers"></Title>
           <br />
           <Graph data={data} label="follower"></Graph>
-          <br/>
-          <Centerlevel title={"Following"}></Centerlevel>
+          <br />
+          <br />
+          <Title title="Following"></Title>
           <br />
           <Graph data={data} label="following"></Graph>
           <br />
-          <Centerlevel title={"Tweets"}></Centerlevel>
+          <br />
+          <Title title="Tweets"></Title>
           <br />
           <Graph data={data} label="tweets"></Graph>
         </div>
