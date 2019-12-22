@@ -8,7 +8,7 @@ export default () => {
     <div>
       <Herotitle title="302CEM Project" subtitle="How it works"></Herotitle>
       <div
-        className="container"
+        className="container fade"
         style={{ backgroundColor: "white", marginTop: 20 }}
       >
         <div className="box">

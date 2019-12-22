@@ -86,6 +86,7 @@ export default () => {
       >
         <div className="box">
           <Breadcrumb page="Home" currentpage="User"></Breadcrumb>
+          <div className="fade">
           <div className="level-item has-text-centered">
             <div>
               <figure className="image is-128x128">
@@ -98,30 +99,34 @@ export default () => {
           </div>
           <Centerlevel title={username}></Centerlevel>
           <Centerlevel heading="Created at 2017-12-07"></Centerlevel>
+          </div>
           <br />
-          <nav className="level is-mobile">
+          <nav className="level is-mobile fade delay-s">
             <Centerlevel title={toShortNumber( data[data.length-1].tweets)} heading="Tweets"></Centerlevel>
             <Centerlevel title={data[data.length-1].following}  heading="Following"></Centerlevel>
             <Centerlevel title={toShortNumber(data[data.length-1].follower)}  heading="Followers"></Centerlevel>
           </nav>
           <br />
+          <div className="fade delay-m">
           <Title
             title={
               "Twitter Stats Summary / User Statistics For " + username + ":"
             }
           ></Title>
           <Table data={data}></Table>
+          </div>
+          <div className="fade delay-l">
           <Title
             title={"Twitter Progress Graphs For " + username + ":"}
           ></Title>
-          <Centerlevel title={"Followers Increase For "+ username}></Centerlevel>
+          <Centerlevel title={"Followers For "+ username}></Centerlevel>
           <br/>
-          <Graph data={data} label="followers_increase"></Graph>
+          <Graph data={data} label="follower"></Graph>
           <br/>
-          <Centerlevel title={"Tweets Increase For " + username}></Centerlevel>
+          <Centerlevel title={"Tweets For " + username}></Centerlevel>
           <br/>
-          <Graph data={data} label="tweets_increase"></Graph>
-
+          <Graph data={data} label="tweets"></Graph>
+          </div>
         </div>
       </div>
     </div>
