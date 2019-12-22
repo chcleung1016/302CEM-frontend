@@ -8,7 +8,7 @@ import Table from "../Components/Table";
 import Title from "../Components/Title";
 import Breadcrumb from "../Components/Breadcrumb";
 import Graph from "../Components/Graph";
-
+import ScrollAnimation from 'react-animate-on-scroll';
 const data = [
   {
     date: "2019-12-07",
@@ -82,7 +82,7 @@ export default () => {
     <div>
       <Herotitle title="302CEM Project" subtitle="User"></Herotitle>
       <div className="container" style={{ marginTop: 20 }}>
-        <div className="box fade">
+        <div className="box fade delay-s">
           <Breadcrumb page="Home" currentpage="User"></Breadcrumb>
 
           <div className="level-item has-text-centered">
@@ -117,13 +117,16 @@ export default () => {
             ></Centerlevel>
           </nav>
         </div>
-
-        <div className="box fade delay-m" style={{ padding: 25 }}>
+        <ScrollAnimation animateIn='fade' animateOnce={true} duration={0.7} className="delay-m">
+        <div className="box" style={{ padding: 25 }}>
           <p className="title">Summary</p>
           <br />
           <Table data={data}></Table>
         </div>
-        <div className="box fade delay-l" style={{ padding: 25 }}>
+        </ScrollAnimation>
+        <br/>
+        <ScrollAnimation animateIn='fade' duration={0.7} animateOnce={true}>
+        <div className="box" style={{ padding: 25 }}>
           <p className="title">Graph</p>
           <br />
           <Title title="Followers"></Title>
@@ -140,6 +143,7 @@ export default () => {
           <br />
           <Graph data={data} label="tweets"></Graph>
         </div>
+        </ScrollAnimation>
       </div>
     </div>
   ) : (
