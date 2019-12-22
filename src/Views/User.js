@@ -8,7 +8,7 @@ import Table from "../Components/Table";
 import Title from "../Components/Title";
 import Breadcrumb from "../Components/Breadcrumb";
 import Graph from "../Components/Graph";
-import {toShortNumber} from "../util";
+import { toShortNumber } from "../util";
 const data = [
   {
     date: "2019-12-07",
@@ -77,56 +77,65 @@ const data = [
 export default () => {
   let { username } = useParams();
   const user = getUser(username);
+  const lastData = data[data.length - 1];
   return user ? (
     <div>
       <Herotitle title="302CEM Project" subtitle="User"></Herotitle>
-      <div
-        className="container"
-        style={{ backgroundColor: "white", marginTop: 20 }}
-      >
-        <div className="box">
+      <div className="container" style={{ marginTop: 20 }}>
+        <div className="box fade">
           <Breadcrumb page="Home" currentpage="User"></Breadcrumb>
-          <div className="fade">
-          <div className="level-item has-text-centered">
-            <div>
-              <figure className="image is-128x128">
-                <img
-                  className="is-rounded"
-                  src="https://bulma.io/images/placeholders/128x128.png"
-                ></img>
-              </figure>
+         
+            <div className="level-item has-text-centered">
+              <div>
+                <figure className="image is-128x128">
+                  <img
+                    className="is-rounded"
+                    src="https://bulma.io/images/placeholders/128x128.png"
+                  ></img>
+                </figure>
+              </div>
             </div>
-          </div>
-          <Centerlevel title={username}></Centerlevel>
-          <Centerlevel heading="Created at 2017-12-07"></Centerlevel>
-          </div>
+            <Centerlevel title={username}></Centerlevel>
+            <Centerlevel heading="Created at 2017-12-07"></Centerlevel>
+          
           <br />
           <nav className="level is-mobile fade delay-s">
-            <Centerlevel title={toShortNumber( data[data.length-1].tweets)} heading="Tweets"></Centerlevel>
-            <Centerlevel title={data[data.length-1].following}  heading="Following"></Centerlevel>
-            <Centerlevel title={toShortNumber(data[data.length-1].follower)}  heading="Followers"></Centerlevel>
+            <Centerlevel
+              numberAnimation
+              title={lastData.tweets}
+              heading="Tweets"
+            ></Centerlevel>
+            <Centerlevel
+              numberAnimation
+              title={lastData.following}
+              heading="Following"
+            ></Centerlevel>
+            <Centerlevel
+              numberAnimation
+              title={lastData.follower}
+              heading="Followers"
+            ></Centerlevel>
           </nav>
-          <br />
-          <div className="fade delay-m">
-          <Title
-            title={
-              "Twitter Stats Summary / User Statistics For " + username + ":"
-            }
-          ></Title>
-          <Table data={data}></Table>
-          </div>
-          <div className="fade delay-l">
-          <Title
-            title={"Twitter Progress Graphs For " + username + ":"}
-          ></Title>
-          <Centerlevel title={"Followers For "+ username}></Centerlevel>
           <br/>
+        </div>
+
+        <div className="box fade delay-m">
+          <Title title={"Summary"}></Title>
+          <Table data={data}></Table>
+        </div>
+        <div className="box fade delay-l">
+          <Title title={"Graphs"}></Title>
+          <Centerlevel title={"Followers"}></Centerlevel>
+          <br />
           <Graph data={data} label="follower"></Graph>
           <br/>
-          <Centerlevel title={"Tweets For " + username}></Centerlevel>
-          <br/>
+          <Centerlevel title={"Following"}></Centerlevel>
+          <br />
+          <Graph data={data} label="following"></Graph>
+          <br />
+          <Centerlevel title={"Tweets"}></Centerlevel>
+          <br />
           <Graph data={data} label="tweets"></Graph>
-          </div>
         </div>
       </div>
     </div>
