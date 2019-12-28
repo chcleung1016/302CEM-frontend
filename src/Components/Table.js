@@ -22,23 +22,11 @@ export default ({ data }) => {
             <tr key={d.date}>
               <td>{d.date}</td>
               <td>{getDay(d.date)}</td>
-              <td
-                style={{ color: d.followers_increase === 0 ? "red" : "green" }}
-              >
-                {"+" + formatNumber(d.followers_increase)}
-              </td>
-              <td>{formatNumber(d.follower)}</td>
-              <td
-                style={{ color: d.followers_increase === 0 ? "red" : "green" }}
-              >
-                {"+" + formatNumber(d.following_increase)}
-              </td>
+              <NumberTd>{d.followers_diff}</NumberTd>
+              <td>{formatNumber(d.followers)}</td>
+              <NumberTd>{d.following_diff}</NumberTd>
               <td>{formatNumber(d.following)}</td>
-              <td
-                style={{ color: d.followers_increase === 0 ? "red" : "green" }}
-              >
-                {"+" + formatNumber(d.tweets_increase)}
-              </td>
+              <NumberTd>{d.tweets_diff}</NumberTd>
               <td>{formatNumber(d.tweets)}</td>
             </tr>
           ))}
@@ -47,3 +35,12 @@ export default ({ data }) => {
     </div>
   );
 };
+function NumberTd({ children }) {
+  return children ? (
+    <td style={{ color: children < 0 ? "red" : "green" }}>
+      {(children > 0 ? "+" : "") + formatNumber(children)}
+    </td>
+  ) : (
+    <td>-</td>
+  );
+}

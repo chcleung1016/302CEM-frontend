@@ -4,7 +4,7 @@ import Herotitle from "../Components/Herotitle";
 export default () => {
   return (
     <div>
-      <Herotitle title="302CEM Project" subtitle="Home"></Herotitle>
+      <Herotitle  subtitle="Home"></Herotitle>
       <div
         className="container fade"
         style={{ backgroundColor: "white", marginTop: 20 }}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-
+import icon from "../Image/icon.png";
 export default () => {
   const [username, setUsername] = useState("");
   const path = useLocation().pathname;
@@ -10,12 +10,10 @@ export default () => {
     <nav className="navbar is-transparent">
       <div className="container">
         <div className="navbar-brand">
-          <a className="navbar-item" href="https://bulma.io">
+          <a className="navbar-item">
             <img
-              src="https://bulma.io/images/bulma-logo.png"
-              alt="Bulma: a modern CSS framework based on Flexbox"
-              width="112"
-              height="28"
+              src= {icon}
+              alt=""
             ></img>
           </a>
           <div
@@ -94,7 +92,7 @@ export default () => {
                   <input
                     className="input"
                     type="text"
-                    placeholder="enter 'user1' for test"
+                    placeholder="enter a Twitter username"
                     value={username}
                     onChange={event => setUsername(event.target.value)}
                   ></input>
