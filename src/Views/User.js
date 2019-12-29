@@ -49,7 +49,7 @@ export default () => {
                 <img
                   className="is-rounded"
                   alt=""
-                  src="https://bulma.io/images/placeholders/128x128.png"
+                  src={"http://avatars.io/twitter"+username}
                 ></img>
               </figure>
             </div>
