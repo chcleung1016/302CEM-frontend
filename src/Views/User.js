@@ -49,7 +49,7 @@ export default () => {
                 <img
                   className="is-rounded"
                   alt=""
-                  src={"http://avatars.io/twitter"+username}
+                  src={"http://avatars.io/twitter/"+username}
                 ></img>
               </figure>
             </div>
